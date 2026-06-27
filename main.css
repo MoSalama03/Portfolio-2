@@ -1,0 +1,37 @@
+/* Global reset styles applied across the portfolio */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Smooth scrolling and base font settings */
+html {
+    scroll-behavior: smooth;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Responsive image defaults */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Base anchor styling for links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Remove default list markers for nav items */
+li {
+    list-style: none;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+}

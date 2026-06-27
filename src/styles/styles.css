@@ -1,0 +1,295 @@
+/* Portfolio page layout styles */
+body {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #ffffff 0%, #ebf8ff 50%, #c6ecff 100%);
+    color: #1f2937;
+}
+
+#portfolio-app {
+    min-height: 100vh;
+}
+
+/* Hero section container for profile image and bio */
+.portfolio__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding: 3rem;
+}
+
+/* Avatar styling for the profile image */
+.portfolio__avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Text container for profile heading and bio */
+.portfolio__details {
+    display: block;
+    flex: 1 1 280px;
+}
+
+/* Primary heading style for the portfolio owner name */
+.portfolio__title {
+    margin-bottom: 0.5rem;
+}
+
+/* Paragraph styling for portfolio description text */
+.portfolio__description {
+    font-size: 2ch;
+    max-width: 40ch;
+}
+
+.portfolio__CV {
+    margin-inline-start: 2em;
+}
+
+@media (max-width: 768px) {
+    .portfolio__container {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.25rem;
+    }
+
+    .portfolio__details {
+        text-align: center;
+    }
+
+    .portfolio__description {
+        margin-inline: auto;
+    }
+
+    .portfolio__CV {
+        margin-inline-start: 0;
+        margin-top: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio__avatar {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* Primary heading style for the portfolio owner name */
+.portfolio__title {
+    margin-bottom: 0.5rem;
+}
+
+/* Paragraph styling for portfolio description text */
+.portfolio__description {
+    font-size: 2ch;
+    max-width: 40ch;
+}
+
+.portfolio__CV {
+    margin-inline-start: 2em;
+}
+
+.portfolio__CV-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.9rem 1.8rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #3f8cff, #0091ff);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 14px 30px rgba(0, 123, 255, 0.18);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.portfolio__CV-button::after {
+    content: '→';
+    display: inline-block;
+    font-size: 1.1rem;
+    transition: transform 0.25s ease;
+}
+
+.portfolio__CV-button:hover::after,
+.portfolio__CV-button:focus-visible::after {
+    transform: translateX(3px);
+}
+
+.portfolio__CV-button:hover,
+.portfolio__CV-button:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 123, 255, 0.25);
+    filter: brightness(1.05);
+}
+
+.portfolio__CV-button:focus-visible {
+    outline: 3px solid rgba(0, 145, 255, 0.45);
+    outline-offset: 4px;
+}
+
+/* Separator style between major content sections */
+.portfolio__separator {
+    height: 1px;
+    background: #ccc;
+    margin: 1.5rem auto;
+    width: 93%;
+}
+
+/* Projects section styling for recruiter-friendly work highlights */
+.portfolio__projects {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    padding: 2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    box-shadow: 0 18px 40px rgba(16, 36, 66, 0.06);
+}
+
+.portfolio__section-header {
+    max-width: 72ch;
+    margin-bottom: 1.75rem;
+}
+
+.portfolio__section-title {
+    font-size: clamp(2rem, 2.4vw, 2.5rem);
+    margin-bottom: 0.75rem;
+}
+
+.portfolio__section-subtitle {
+    font-size: 1rem;
+    color: #4f4f4f;
+    line-height: 1.7;
+}
+
+.portfolio__project-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.portfolio__project-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 12px 32px rgba(24, 46, 88, 0.08);
+}
+
+.portfolio__project-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.65rem;
+}
+
+.portfolio__project-description {
+    color: #575757;
+    line-height: 1.8;
+    margin-bottom: 0.9rem;
+}
+
+.portfolio__project-details {
+    font-size: 0.95rem;
+    color: #0077cc;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.portfolio__project-highlights {
+    display: grid;
+    gap: 0.5rem;
+    padding-left: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+.portfolio__project-highlights li::marker {
+    color: #0077cc;
+}
+
+.portfolio__projects-footer {
+    margin-top: 1.75rem;
+    text-align: center;
+}
+
+.portfolio__view-more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.95rem 1.9rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #3f8cff, #0091ff);
+    color: #ffffff;
+    font-weight: 700;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.portfolio__view-more:hover,
+.portfolio__view-more:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 123, 255, 0.22);
+}
+
+@media (max-width: 980px) {
+    .portfolio__project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 720px) {
+    .portfolio__project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio__projects {
+        padding: 1.5rem 1rem;
+    }
+}
+
+/* Fixed navbar is hidden above the page and transitions into view on scroll */
+.portfolio__navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    translate: 0 -100%;
+    opacity: 0;
+    transition: translate 0.25s ease, opacity 0.25s ease;
+    z-index: 1000;
+
+    background: #f0f0f1e8;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Visible navbar state applied when the scroll threshold is exceeded */
+.portfolio__navbar--visible {
+    translate: 0 0;
+    opacity: 1;
+}
+
+/* Navbar list layout */
+.portfolio__nav-list {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* Individual navbar item styling */
+.portfolio__nav-item {
+    font-size: 1.6ch;
+    font-weight: bold;
+}
+
+.portfolio__nav-item a:hover {
+    color: #007BFF;
+}
+
+.portfolio__nav-item a {
+    color: #333;
+    transition: color 0.3s ease;
+}

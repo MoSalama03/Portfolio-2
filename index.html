@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Global stylesheet reset -->
+    <link rel="stylesheet" href="main.css">
+    <!-- Page-specific portfolio styles -->
+    <link rel="stylesheet" href="src/styles/styles.css">
+    <!-- JavaScript controls navbar appearance based on scroll position -->
+    <script src="app.js" defer></script>
+    <title>Portfolio</title>
+</head>
+<body>
+    <!-- Main portfolio application wrapper -->
+    <main id="portfolio-app">
+        <!-- Profile hero section with image and introduction -->
+        <section class="portfolio__container">
+            <img src="src/assets/472552828_122203814048197754_6584972697920556089_n.jpg" alt="Personal Pic" id="portfolio-app__avatar"
+            class="portfolio__avatar">
+            <header class="portfolio__details">
+                <h2 class="portfolio__title">Muhammed Salama</h2>
+                <p class="portfolio__description">An aspiring Front-End Dev with a passion for creating engaging and user-friendly websites.</p>
+                <p class="portfolio__description">22 Years Old, Based in Egypt.</p>
+            </header>
+
+            <div class="portfolio__CV">
+                <a class="portfolio__CV-button" href="src/assets/CV.pdf" download>
+                    Download CV
+                </a>
+            </div>
+        </section>
+
+
+        <!-- Visual separator between the hero and the navbar -->
+        <hr class="portfolio__separator" />
+
+        <!-- Projects section highlighting recruiter-friendly work examples -->
+        <section id="projects" class="portfolio__projects">
+            <div class="portfolio__section-header">
+                <h3 class="portfolio__section-title">Selected Projects</h3>
+                <p class="portfolio__section-subtitle">Real front-end work built for performance, polish, and stronger recruiter impact.</p>
+            </div>
+
+            <div class="portfolio__project-grid">
+                <article class="portfolio__project-card">
+                    <h4 class="portfolio__project-title">Responsive Marketing Website</h4>
+                    <p class="portfolio__project-description">Delivered a mobile-first landing page with engaging interactions, fast load speed, and an accessible UI that supports brand storytelling.</p>
+                    <p class="portfolio__project-details">HTML • CSS • JavaScript • Performance Optimization</p>
+                    <ul class="portfolio__project-highlights">
+                        <li>Adaptive layout for desktop and mobile</li>
+                        <li>Optimized images and animations for speed</li>
+                        <li>Clear CTA design for recruiter-ready presentation</li>
+                    </ul>
+                </article>
+
+                <article class="portfolio__project-card">
+                    <h4 class="portfolio__project-title">Interactive Dashboard Redesign</h4>
+                    <p class="portfolio__project-description">Created a polished data dashboard with card-based components, enhanced usability, and visual clarity for decision-makers.</p>
+                    <p class="portfolio__project-details">UI Design • Component Layout • Accessibility</p>
+                    <ul class="portfolio__project-highlights">
+                        <li>Modern interface with clean information hierarchy</li>
+                        <li>Accessible color contrast and navigable content</li>
+                        <li>Focused on user goals and recruiter evaluation</li>
+                    </ul>
+                </article>
+
+                <article class="portfolio__project-card">
+                    <h4 class="portfolio__project-title">E-commerce Landing Page</h4>
+                    <p class="portfolio__project-description">Built a conversion-focused product page with clear product storytelling, trust signals, and responsive checkout flow elements.</p>
+                    <p class="portfolio__project-details">Conversion Design • Responsive Layout • UX Copy</p>
+                    <ul class="portfolio__project-highlights">
+                        <li>Focused on fast onboarding and clean product presentation</li>
+                        <li>Mobile-first design with strong visual hierarchy</li>
+                        <li>Designed to appeal to hiring managers and recruiters</li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="portfolio__projects-footer">
+                <a class="portfolio__view-more" href="src/projects.html">View all projects</a>
+            </div>
+        </section>
+
+        <!-- Sticky navbar hidden by default, shown after scrolling -->
+        <nav class="portfolio__navbar">
+            <ul class="portfolio__nav-list">
+                <li class="portfolio__nav-item"><a href="#">About me</a></li>
+                <li class="portfolio__nav-item"><a href="#projects">Projects</a></li>
+                <li class="portfolio__nav-item"><a href="#">Contact</a></li>
+            </ul>
+    
+        </nav>
+
+    </main>
+
+</body>
+</html>
