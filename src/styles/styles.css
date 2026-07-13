@@ -262,7 +262,7 @@ body {
     translate: 0 -100%;
     opacity: 0;
     transition: translate 0.25s ease, opacity 0.25s ease;
-    z-index: 1000;
+    z-index: 5;
 
     background: var(--navbar-bg);
     padding: 1rem 0;

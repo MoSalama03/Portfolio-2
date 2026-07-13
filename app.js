@@ -1,5 +1,8 @@
 // Select the fixed navbar element used for scroll-triggered visibility.
 const navbar = document.querySelector('.portfolio__navbar');
+const themeToggle = document.getElementById('theme-toggle');
+const htmlElement = document.documentElement;
+const STORAGE_KEY = 'portfolio-theme';
 
 // Distance in pixels to scroll before the navbar appears.
 const NAV_SHOW_OFFSET = 250;
@@ -29,9 +32,6 @@ updateNavbarVisibility();
 
 // ==================== Dark Mode Toggle ====================
 
-const themeToggle = document.getElementById('theme-toggle');
-const htmlElement = document.documentElement;
-const STORAGE_KEY = 'portfolio-theme';
 
 /**
  * Apply the theme to the page and update the toggle button icon
@@ -58,12 +58,32 @@ const initializeTheme = () => {
     if (savedTheme) {
         // Use saved preference
         isDarkMode = savedTheme === 'dark';
+        console.log('✓ Using saved theme preference:', savedTheme);
     } else {
-        // Use system preference
-        isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        // Check system preference
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        isDarkMode = systemPrefersDark;
+        console.log(systemPrefersDark ? '✓ System prefers dark mode' : '✓ System prefers light mode');
     }
 
     applyTheme(isDarkMode);
+};
+
+/**
+ * Listen for system theme preference changes
+ */
+const listenToSystemThemeChanges = () => {
+    const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    darkModeQuery.addEventListener('change', (e) => {
+        const savedTheme = localStorage.getItem(STORAGE_KEY);
+        
+        // Only apply system change if user hasn't manually set a preference
+        if (!savedTheme) {
+            console.log('System theme changed to:', e.matches ? 'dark' : 'light');
+            applyTheme(e.matches);
+        }
+    });
 };
 
 /**
@@ -76,6 +96,9 @@ const toggleTheme = () => {
 
 // Initialize theme on page load
 initializeTheme();
+
+// Listen for system preference changes
+listenToSystemThemeChanges();
 
 // Add click listener to toggle button
 themeToggle.addEventListener('click', toggleTheme);
