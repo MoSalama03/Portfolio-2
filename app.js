@@ -25,3 +25,57 @@ window.addEventListener('scroll', updateNavbarVisibility);
 // Ensure the navbar state is correct when the page loads.
 window.addEventListener('load', updateNavbarVisibility);
 updateNavbarVisibility();
+
+
+// ==================== Dark Mode Toggle ====================
+
+const themeToggle = document.getElementById('theme-toggle');
+const htmlElement = document.documentElement;
+const STORAGE_KEY = 'portfolio-theme';
+
+/**
+ * Apply the theme to the page and update the toggle button icon
+ */
+const applyTheme = (isDarkMode) => {
+    if (isDarkMode) {
+        htmlElement.classList.add('dark-mode');
+        themeToggle.textContent = '☀️';
+        localStorage.setItem(STORAGE_KEY, 'dark');
+    } else {
+        htmlElement.classList.remove('dark-mode');
+        themeToggle.textContent = '🌙';
+        localStorage.setItem(STORAGE_KEY, 'light');
+    }
+};
+
+/**
+ * Initialize theme based on user preference or system setting
+ */
+const initializeTheme = () => {
+    const savedTheme = localStorage.getItem(STORAGE_KEY);
+    let isDarkMode;
+
+    if (savedTheme) {
+        // Use saved preference
+        isDarkMode = savedTheme === 'dark';
+    } else {
+        // Use system preference
+        isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+
+    applyTheme(isDarkMode);
+};
+
+/**
+ * Toggle dark mode when the button is clicked
+ */
+const toggleTheme = () => {
+    const isDarkMode = htmlElement.classList.contains('dark-mode');
+    applyTheme(!isDarkMode);
+};
+
+// Initialize theme on page load
+initializeTheme();
+
+// Add click listener to toggle button
+themeToggle.addEventListener('click', toggleTheme);

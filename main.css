@@ -7,10 +7,14 @@
 
 /* Smooth scrolling and base font settings */
 html {
+    scrollbar-gutter: stable;
     scroll-behavior: smooth;
-    font-family: Arial, sans-serif;
 }
 
+
+body {
+    font-family: Arial, sans-serif;
+}
 
 /* Responsive image defaults */
 img {
@@ -34,4 +38,57 @@ button {
     border: none;
     cursor: pointer;
     font-size: inherit;
+}
+
+/* Dark mode toggle styles */
+.portfolio__theme-toggle {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 2000;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--toggle-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    border: 2px solid var(--toggle-border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio__theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #ebf8ff;
+    --bg-tertiary: #c6ecff;
+    --text-primary: #1f2937;
+    --text-secondary: #575757;
+    --toggle-bg: rgba(255, 255, 255, 0.9);
+    --toggle-border: #ccc;
+    --card-bg: #fff;
+    --card-border: rgba(0, 0, 0, 0.06);
+    --navbar-bg: rgba(240, 240, 241, 0.9);
+}
+
+:root.dark-mode {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #3a3a3a;
+    --text-primary: #e8e8e8;
+    --text-secondary: #b0b0b0;
+    --toggle-bg: rgba(42, 42, 42, 0.9);
+    --toggle-border: #555;
+    --card-bg: #2d2d2d;
+    --card-border: rgba(255, 255, 255, 0.1);
+    --navbar-bg: rgba(30, 30, 30, 0.95);
+}
+
+html.dark-mode {
+    color-scheme: dark;
 }
