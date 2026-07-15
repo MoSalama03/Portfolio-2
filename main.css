@@ -11,8 +11,12 @@ html {
     scroll-behavior: smooth;
 }
 
-
+/* Portfolio page layout styles */
 body {
+    min-block-size: 100svh;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+    color: var(--text-primary);
+    transition: background 0.3s ease, color 0.3s ease;
     font-family: Arial, sans-serif;
 }
 
@@ -76,7 +80,7 @@ button {
     --navbar-bg: rgba(240, 240, 241, 0.9);
 }
 
-:root.dark-mode {
+body.dark-mode {
     --bg-primary: #1a1a1a;
     --bg-secondary: #2d2d2d;
     --bg-tertiary: #3a3a3a;
@@ -89,6 +93,6 @@ button {
     --navbar-bg: rgba(30, 30, 30, 0.95);
 }
 
-html.dark-mode {
-    color-scheme: dark;
+body.dark-mode {
+    color-scheme: light dark;
 }
