@@ -1,5 +1,6 @@
 // Select the fixed navbar element used for scroll-triggered visibility.
 const navbar = document.querySelector('.portfolio__navbar');
+
 const themeToggle = document.getElementById('theme-toggle');
 const bodyElement = document.body;
 const STORAGE_KEY = 'portfolio-theme';
@@ -29,10 +30,6 @@ window.addEventListener('scroll', updateNavbarVisibility);
 window.addEventListener('load', updateNavbarVisibility);
 updateNavbarVisibility();
 
-
-// ==================== Dark Mode Toggle ====================
-
-
 /**
  * Apply the theme to the page and update the toggle button icon
  */
@@ -52,9 +49,37 @@ const applyTheme = (isDarkMode) => {
  * Initialize theme based on user preference or system setting
  */
 const initializeTheme = () => {
+
     localStorage.setItem(STORAGE_KEY, 'dark');
     applyTheme(true);
 };
 
 // Initialize theme on page load
 initializeTheme();
+    const savedTheme = localStorage.getItem(STORAGE_KEY);
+    let isDarkMode;
+
+    if (savedTheme) {
+        // Use saved preference
+        isDarkMode = savedTheme === 'dark';
+    } else {
+        // Use system preference
+        isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    
+    applyTheme(isDarkMode);
+
+/**
+ * Toggle dark mode when the button is clicked
+ */
+const toggleTheme = () => {
+    const isDarkMode = htmlElement.classList.contains('dark-mode');
+    applyTheme(!isDarkMode);
+};
+
+// Initialize theme on page load
+initializeTheme();
+
+// Add click listener to toggle button
+themeToggle.addEventListener('click', toggleTheme);
+

@@ -250,7 +250,7 @@
     translate: 0 -100%;
     opacity: 0;
     transition: translate 0.25s ease, opacity 0.25s ease;
-    z-index: 5;
+    z-index: 1000;
 
     background: var(--navbar-bg);
     padding: 1rem 0;
